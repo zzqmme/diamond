@@ -1,25 +1,35 @@
 #!/bin/bash
 
-	n=$1
-	for((k=1;k<=n;k++))
-	{
-		for((i=k;i<=n;i++))
-		{
-			echo -ne " ";
-		}
+n=$1
+first=1
+for((i=0;i<n;i++))
+do
+	for((j=0;j<((n-first));j++))
+	do
+		echo -n " "
+	done
+	for ((k = 0;k < $first; k++))
+	do
+		echo -n "* "
+	done
+	echo ""
+	first=$(($first + 1))
+done
 
-		for((j=1;j<=i;j++))
-		{
-			echo -ne "*";
-		}
+second=n-1
+for ((i = 0; i<=((n - 1)); i++))
+do
+	for ((j = 0; j < ((n-second));j++))
+	do
+		echo -n " "
+	done
+	for ((k = 0; k < second; k++))
+	do
+		echo -n "* "
+	done
+	echo ""
+	second=$(($second -1))
+done
 
-		for((z=1;z<=i;z++))
-		{
-			echo -ne "*";
-		}
-
-		echo;
-	}
-
-
+exit 0
 
